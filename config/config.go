@@ -1,9 +1,9 @@
 package config
 
 import (
-	"it-cv/pkg/helper"
 	"os"
 
+	"github.com/pkg-ru/pkg/helper"
 	"gopkg.in/yaml.v2"
 )
 

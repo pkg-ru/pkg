@@ -5,6 +5,7 @@ import (
 	"strings"
 )
 
+// Получаем номер телефона без символов форматирования
 func PhoneRaw(phone string) string {
 	phone = strings.Trim(phone, "\r\n\t ")
 	reg, _ := regexp.Compile(`[^\+\d]+`)
@@ -23,6 +24,7 @@ func PhoneRaw(phone string) string {
 	return ""
 }
 
+// Получаем отформатированный номер телефона
 func PhoneFormat(phone string) string {
 	reg, _ := regexp.Compile(`^(\+?)(\d{1,3})(\d{3})(\d{3})(\d{2})(\d{2})$`)
 	return reg.ReplaceAllString(PhoneRaw(phone), "$1$2($3)$4-$5-$6")

@@ -3,7 +3,7 @@ package config
 import (
 	"os"
 
-	"github.com/pkg-ru/pkg/helper"
+	"github.com/pkg-ru/pkg/files"
 	"gopkg.in/yaml.v2"
 )
 
@@ -28,7 +28,7 @@ import (
 //	}
 func Get(file string, out any) error {
 	err := get(file+".yaml", out)
-	if helper.FileExists(file + "-local.yaml") {
+	if files.Exists(file + "-local.yaml") {
 		get(file+"-local.yaml", out)
 	}
 	return err
